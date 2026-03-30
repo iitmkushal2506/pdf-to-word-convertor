@@ -7,16 +7,6 @@ https://pdf-to-word-convertor-bvpo.onrender.com
 
 ---
 
-# 👨‍💻 Author
-
-**Kushal Batra**
-IIT Madras - BS in Data Science & Programming
-
-Main GitHub:
-https://github.com/YOUR-GITHUB-USERNAME
-
----
-
 # 🚀 Features
 
 ✅ Convert PDF to Word (.docx)
