@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF → Word Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Background grid -->
+  <div class="bg-grid"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">DocShift</span>
+      </div>
+      <span class="badge">PDF → DOCX</span>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-eyebrow">Zero fuss. Zero signup.</p>
+      <h1 class="hero-title">
+        Turn any PDF<br/>into a Word doc<br/>
+        <span class="hero-accent">instantly.</span>
+      </h1>
+      <p class="hero-sub">Preserves headings, paragraphs, and tables. Runs entirely on your server — nothing leaves your machine.</p>
+    </section>
+
+    <!-- Upload Card -->
+    <main class="card" id="card">
+
+      <!-- Drop Zone -->
+      <div class="dropzone" id="dropzone">
+        <div class="drop-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="6" y="6" width="36" height="36" rx="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <path d="M24 16v12M18 22l6-6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 34h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="drop-title">Drop your PDF here</p>
+        <p class="drop-sub">or <label for="file-input" class="file-label">browse files</label></p>
+        <input type="file" id="file-input" accept=".pdf" hidden />
+      </div>
+
+      <!-- Selected File Info -->
+      <div class="file-info hidden" id="file-info">
+        <div class="file-icon">📄</div>
+        <div class="file-details">
+          <span class="file-name" id="file-name">—</span>
+          <span class="file-size" id="file-size">—</span>
+        </div>
+        <button class="file-remove" id="file-remove" title="Remove">✕</button>
+      </div>
+
+      <!-- Options -->
+      <div class="options">
+        <label class="toggle-label">
+          <input type="checkbox" id="detect-tables" checked />
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span>Detect &amp; convert tables</span>
+        </label>
+      </div>
+
+      <!-- Convert Button -->
+      <button class="btn-convert" id="btn-convert" disabled>
+        <span class="btn-text">Convert to Word</span>
+        <span class="btn-arrow">→</span>
+      </button>
+
+      <!-- Progress -->
+      <div class="progress-wrap hidden" id="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <p class="progress-label" id="progress-label">Uploading…</p>
+      </div>
+
+      <!-- Result -->
+      <div class="result hidden" id="result">
+        <div class="result-icon">✓</div>
+        <div class="result-info">
+          <p class="result-title">Conversion complete!</p>
+          <p class="result-meta" id="result-meta"></p>
+        </div>
+        <a class="btn-download" id="btn-download" href="#">Download .docx</a>
+      </div>
+
+      <!-- Error -->
+      <div class="error-box hidden" id="error-box">
+        <span class="error-icon">⚠</span>
+        <span id="error-msg"></span>
+      </div>
+
+    </main>
+
+    <!-- How it works -->
+    <section class="steps">
+      <h2 class="steps-title">How it works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Upload PDF</h3>
+            <p>Drag-and-drop or browse to select any PDF file up to 50 MB.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>Convert</h3>
+            <p>Our engine extracts text, headings, and tables and recreates them in Word format.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Download</h3>
+            <p>Your .docx file is ready instantly — no email, no account needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">Built with Flask · pdfplumber · python-docx</footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
